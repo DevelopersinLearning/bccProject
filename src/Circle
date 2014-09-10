@@ -1,0 +1,29 @@
+public class Circle extends Ellipse2D.Float{
+
+    int x_speed, y_speed;
+    int d;
+    int width = 800;
+    int height = 600;
+
+    //constructor
+    public Circle(int diameter)
+    {
+        super( (int)(20+ Math.random()*(800- 20)),
+               (int)(20+ Math.random()*(800- 20)), 
+                20,20);//<-----20 is the diameter
+        this.d=20;
+        this.x_speed=10;
+        this.y_speed=10;
+    }
+
+    public void move()
+    {
+        if(super.x < 0 || super.x > 800-d)
+            x_speed*=-1; //flip x direction 
+        if (super.y < 0 || super.y> 600-d)
+            y_speed*=-1;
+        super.x += x_speed;//update x and y position
+        super.y +=y_speed;                      ///
+    }
+
+}
